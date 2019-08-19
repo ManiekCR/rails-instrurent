@@ -9,7 +9,7 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
+<!-- TO DO: allow user to add a first and last name to their profile, plus any other bio information that we have decided is important for user -->
     <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
