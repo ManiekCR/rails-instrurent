@@ -1,1 +1,49 @@
-// Specific CSS for your home-page
+@import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
+// font-family: 'Monoton', cursive;
+
+
+.landing-container {
+  padding: $spacer-y ($spacer-x/2);
+  background-image: image_url("concert.jpg");
+  background-size:cover;
+  height:100vh;
+}
+
+h1 {
+font-family: 'Monoton', sans-serif;  font-size:6em;
+
+}
+
+p {
+    color: white;
+}
+
+input {
+  width:80vw;
+}
+
+a {
+  text-decoration:none;
+  color:white;
+}
+
+
+
+#firsthalf {
+  color:#e88053;
+
+}
+
+#secondhalf {
+  color:#88047a;
+
+}
+
+.search-form {
+  display:flex;
+}
+
+#main-search {
+  margin: 5px;
+  width:20vw;
+}
