@@ -1,0 +1,41 @@
+.threshold-container {
+  padding: $spacer-y $spacer-x;
+
+  h2 {
+    text-align:center;
+  }
+
+  .login-form {
+    margin: $spacer-y $spacer-x*2;
+  }
+
+  .form-actions {
+    display:flex;
+    flex-direction: row-reverse;
+  }
+
+  .form-actions input {
+    border:solid 1px black;
+  }
+}
+
+.shared-links {
+  display: flex;
+  flex-direction:column;
+  padding: 0 0;
+  top:0;
+  a {
+    color: grey;
+  }
+
+  a:last-child {
+  color: grey;
+  font-size:0.8em;
+  font-style:italic;
+
+  }
+
+
+}
+
+
