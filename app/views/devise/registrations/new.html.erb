@@ -13,16 +13,16 @@
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
+                input_html: { autocomplete: "new-password" }, class: "light-grey-text" %>
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+    <%= f.button :submit, "Sign up", class: "white-text-btn" %>
   </div>
-  <div class="shared-links">
+  <div class="shared-links light-grey-text">
   <%= render "devise/shared/links" %>
   </div>
 </div>
