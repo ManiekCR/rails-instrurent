@@ -1,9 +1,11 @@
 class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only[:index, :show]
   def index
+    @instrument = Instrument.all
   end
 
   def show
+    @instrument = Instrument.find(params[:id])
     @booking = Booking.new
   end
 
@@ -17,6 +19,10 @@ class InstrumentsController < ApplicationController
 
   def create
     @instrument = Instrument.new(instrument_params)
+    if @instrument.save
+      redirect_to instrument_path(@instrument)
+    else render 'new'
+    end
   end
 
   private
