@@ -1,32 +1,39 @@
-@import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai|Baloo+Bhaijaan|Chivo|Lato|Maven+Pro:500|Monoton|Oswald|Raleway:500|Righteous|Ubuntu+Condensed&display=swap');
+
+// font-family: 'Raleway', sans-serif;
 // font-family: 'Monoton', cursive;
+
 
 
 .landing-container {
   padding: $spacer-y ($spacer-x/2);
-  background-image: image_url("concert.jpg");
+  background-image: linear-gradient(to top left, rgba(0, 0, 255, 0.08), rgb(15, 0, 31)),image_url("concert.jpg");
   background-size:cover;
   height:100vh;
+  h1 {
+    font-family: 'Monoton', sans-serif;
+    font-size:6em;
+  }
 }
 
-h1 {
-font-family: 'Monoton', sans-serif;  font-size:6em;
 
-}
 
-p {
-    color: white;
+h2 {
+  font-family: 'Raleway', sans-serif;
+  color: white;
+  font-size:1em;
 }
 
 input {
   width:80vw;
+  height:40px;
 }
 
 a {
   text-decoration:none;
   color:white;
+  padding: 5px;
 }
-
 
 
 #firsthalf {
@@ -35,15 +42,25 @@ a {
 }
 
 #secondhalf {
-  color:#88047a;
+  color:#b707a4;
 
 }
 
 .search-form {
   display:flex;
+  flex-align:baseline;
 }
 
 #main-search {
-  margin: 5px;
-  width:20vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border:solid 1px white;
+  width:10vw;
+  border-radius:3px;
+  margin-left:1vw;
+  a:hover {
+    color: #d8dddf;
+    text-decoration:none;
+  }
 }
