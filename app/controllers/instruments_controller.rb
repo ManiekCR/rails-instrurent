@@ -16,9 +16,6 @@ class InstrumentsController < ApplicationController
     # authorize @instrument
   end
 
-  def edit
-  end
-
   def create
     @instrument = Instrument.new(instrument_params)
     if @instrument.save
@@ -34,7 +31,7 @@ class InstrumentsController < ApplicationController
     @instrument.update(instrument_params)
     redirect_to instrument_path(@instrument)
   end
-
+  
   def destroy
     @instrument = Instrument.find(params[:id])
     @instrument.destroy
