@@ -14,7 +14,8 @@ class InstrumentsController < ApplicationController
 
   def new
     @instrument = Instrument.new
-    #authorize @instrument
+    # authorize @instrument
+
   end
 
   def create
@@ -39,7 +40,7 @@ class InstrumentsController < ApplicationController
 
   def set_instrument
     @instrument = Instrument.find(params[:id])
-    #authorize @instrument
+    # authorize @instrument
   end
 
   def instrument_params
