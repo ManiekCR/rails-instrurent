@@ -1,6 +1,6 @@
 class InstrumentsController < ApplicationController
   before_action :set_instrument, only: [:show, :edit, :update]
-  skip_before_action :authenticate_user!, only[:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @instrument = Instrument.all
@@ -13,7 +13,7 @@ class InstrumentsController < ApplicationController
 
   def new
     @instrument = Instrument.new
-    authorize @instrument
+    # authorize @instrument
   end
 
   def create
@@ -38,7 +38,7 @@ class InstrumentsController < ApplicationController
 
   def set_instrument
     @instrument = Instrument.find(params[:id])
-    authorize @instrument
+    # authorize @instrument
   end
 
   def instrument_params
