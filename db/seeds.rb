@@ -27,6 +27,7 @@ puts "generating ten users and fifty instruments"
   email: Faker::Internet.email,
   password: Faker::Internet.password,
   address: Faker::Address.full_address,
+  admin:false
   )
   5.times do
     Instrument.create!(
