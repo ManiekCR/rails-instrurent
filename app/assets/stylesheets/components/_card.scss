@@ -8,6 +8,15 @@
   width: 60%;
 }
 
+.user-dashboard-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 10px;
+  flex-grow: 1;
+  padding: 0 10px 10px 10px;
+  width: 60%;
+}
+
 .card {
   background-size: cover;
   background-position: center;
