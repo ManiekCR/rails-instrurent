@@ -1,0 +1,67 @@
+.threshold-container {
+  padding: $spacer-y $spacer-x;
+  background-color: #373247;
+
+  h2 {
+    text-align:center;
+    color:white;
+  }
+
+  .login-form {
+    margin: $spacer-y $spacer-x*2 0 $spacer-x*2;
+  }
+
+  .form-actions {
+    display:flex;
+    flex-direction: row-reverse;
+  }
+
+  .form-actions input {
+    border:solid 1px white;
+    width:100%;
+  }
+}
+
+.shared-links {
+  display: flex;
+  flex-direction:column;
+  padding: 0 0;
+  top:0;
+  a {
+    color: #d8dddf;
+  }
+  a:hover {
+    color:#939393;
+  }
+
+}
+
+.text-muted {
+   color: #d8dddf !important;
+
+}
+
+label {
+  color:white;
+}
+
+.white-text-btn {
+  color:white;
+  &:hover {
+    color: #939393;
+  }
+}
+
+.tiny-links {
+  font-size:0.8em;
+  margin:3px;
+}
+#already, #forgot {
+  text-align:center;
+  font-style:italic;
+
+}
+
+#create-account {
+  margin-top:$spacer-y;
+}
