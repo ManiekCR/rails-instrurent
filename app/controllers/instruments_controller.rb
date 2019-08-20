@@ -1,7 +1,9 @@
 class InstrumentsController < ApplicationController
-  skip_before_action :authenticate_user!, only[:index, :show]
+  before_action :set_instrument, only: [:show, :edit, :update]
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
-    @instrument = Instrument.all
+    @instruments = Instrument.all
   end
 
   def show
@@ -11,7 +13,7 @@ class InstrumentsController < ApplicationController
 
   def new
     @instrument = Instrument.new
-    authorize @instrument
+    # authorize @instrument
   end
 
   def edit
@@ -25,14 +27,28 @@ class InstrumentsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @instrument.update(instrument_params)
+    redirect_to instrument_path(@instrument)
+  end
+
+  def destroy
+    @instrument = Instrument.find(params[:id])
+    @instrument.destroy
+    redirect_to instruments_path
+  end
+
   private
 
   def set_instrument
     @instrument = Instrument.find(params[:id])
-    authorize @instrument
+    # authorize @instrument
   end
 
   def instrument_params
-    params[:instrument].permit(:name, :category, :description)
+    params[:instrument].permit(:name, :category, :description, :price)
   end
 end
