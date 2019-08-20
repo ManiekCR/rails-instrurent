@@ -1,0 +1,59 @@
+.threshold-container {
+  padding: $spacer-y $spacer-x;
+  background-color: #373247;
+
+  h2 {
+    text-align:center;
+  }
+
+  .login-form {
+    margin: $spacer-y $spacer-x*2;
+  }
+
+  .form-actions {
+    display:flex;
+    flex-direction: row-reverse;
+  }
+
+  .form-actions input {
+    border:solid 1px white;
+  }
+}
+
+.shared-links {
+  display: flex;
+  flex-direction:column;
+  padding: 0 0;
+  top:0;
+  a:hover {
+    color:white;
+  }
+
+  a:last-child {
+  font-size:0.8em;
+  font-style:italic;
+
+  }
+
+}
+
+.text-muted {
+   color: #d8dddf !important;
+
+}
+
+label {
+  color:white;
+}
+
+.white-text-btn {
+  color:white;
+  &:hover {
+    color: #939393;
+  }
+}
+
+.light-grey-text {
+  color: #d8dddf;
+
+}
