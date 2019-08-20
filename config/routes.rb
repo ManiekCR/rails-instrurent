@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  # get 'users/sign_out', to: 'pages#home'
 
   get 'dashboard/show', to: 'dashboard#show'
 
