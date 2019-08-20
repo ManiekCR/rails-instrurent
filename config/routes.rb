@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'dashboard/show', to: 'dashboard#show'
 
   resources :instruments
+  resources :dashboard, only: :show
 
   devise_for :users
   root to: 'pages#home'
