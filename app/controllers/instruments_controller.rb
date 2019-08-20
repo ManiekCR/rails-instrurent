@@ -30,7 +30,6 @@ class InstrumentsController < ApplicationController
   end
 
   def update
-
   end
 
   def destroy
