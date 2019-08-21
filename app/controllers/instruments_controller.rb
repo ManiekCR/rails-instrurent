@@ -33,11 +33,14 @@ class InstrumentsController < ApplicationController
   end
 
   def edit
+    # @instrument = Instrument.find(params[:id])
+
+
   end
 
   def update
     @instrument.update(instrument_params)
-    redirect_to instrument_path(@instrument)
+    redirect_to dashboard_show
   end
 
   def destroy
