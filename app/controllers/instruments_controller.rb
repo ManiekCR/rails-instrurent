@@ -27,7 +27,7 @@ class InstrumentsController < ApplicationController
     @instrument = Instrument.new(instrument_params)
     @instrument.user_id = current_user.id
     if @instrument.save
-      redirect_to instrument_path(@instrument)
+      redirect_to dashboard_show
     else render 'new'
     end
   end
@@ -54,6 +54,6 @@ class InstrumentsController < ApplicationController
   end
 
   def instrument_params
-    params[:instrument].permit(:name, :category, :description, :price)
+    params[:instrument].permit(:name, :category, :description, :price, :address)
   end
 end
