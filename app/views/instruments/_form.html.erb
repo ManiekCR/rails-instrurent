@@ -3,6 +3,7 @@
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
+
     <% if @instrument.errors.any? %>
       <ul>
         <% @instrument.errors.full_messages.each do |message| %>
@@ -17,6 +18,7 @@
       <%= f.input :description %>
       <%= f.input :price %>
     </div>
+
 
     <div class="form-actions">
       <%= f.button :submit, :class => "button" %>
