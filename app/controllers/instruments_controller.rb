@@ -3,7 +3,7 @@ class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @instruments = Instrument.geocoded
+    @instruments = policy_scope(Instrument).geocoded
     @markers = @instruments.map do |instrument|
       {
         lat: instrument.latitude,
@@ -39,7 +39,7 @@ class InstrumentsController < ApplicationController
     @instrument.update(instrument_params)
     redirect_to instrument_path(@instrument)
   end
-  
+
   def destroy
     @instrument = Instrument.find(params[:id])
     @instrument.destroy
