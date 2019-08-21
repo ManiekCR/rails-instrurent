@@ -1,4 +1,8 @@
 .crud-form {
+  input, select, textarea {
+      min-width:200px;
+     }
+
   .button {
     background-color: #F3633F;
     border: none;
@@ -21,6 +25,7 @@
      .form-control-label {
       color:black;
      }
+
     }
 
   .form-actions{
@@ -29,7 +34,7 @@
   }
 }
 
-.container {
+#new-form, #edit-form {
    h1{
      padding-left:250px;
      padding-right:250px;
@@ -38,6 +43,7 @@
 
   .back{
      padding-left:250px;
+     color: #787878;
      }
   }
 
