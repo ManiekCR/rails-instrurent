@@ -16,9 +16,6 @@ class InstrumentsController < ApplicationController
     # authorize @instrument
   end
 
-  def edit
-  end
-
   def create
     @instrument = Instrument.new(instrument_params)
     @instrument.user_id = current_user.id
