@@ -71,3 +71,32 @@ a {
     text-decoration:none;
   }
 }
+
+.advertising {
+background-color:#0d0821;
+  // display:flex;
+  // width:100vw;
+  // flex-wrap:wrap;
+  h3 {
+    color:white;
+    width:50vw;
+    font-size: 3em;
+    font-style:italic;
+
+  }
+
+  img {
+    width:50vw;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    // height:300px;
+  }
+
+  .advert-card {
+    display:flex;
+  }
+
+}
+
+
+
+
