@@ -1,2 +1,12 @@
-<h1>Instruments#new</h1>
-<p>Find me in app/views/instruments/new.html.erb</p>
+<html>
+  <body style="background-color:white">
+      <div class="container">
+        <h1>Add a New Instrument</h1>
+        <%= render "form" %>
+        <br>
+        <div class="back">
+        <%= link_to "Back", instruments_path, style: 'color: #008489' %>
+      </div>
+      </div>
+    </body>
+  </html>
