@@ -3,7 +3,14 @@ class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @instruments = Instrument.all
+    @instruments = Instrument.geocoded
+    @markers = @instruments.map do |instrument|
+      {
+        lat: instrument.latitude,
+        lng: instrument.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { instrument: instrument })
+      }
+    end
   end
 
   def show
@@ -18,6 +25,7 @@ class InstrumentsController < ApplicationController
 
   def create
     @instrument = Instrument.new(instrument_params)
+    @instrument.user_id = current_user.id
     if @instrument.save
       redirect_to instrument_path(@instrument)
     else render 'new'

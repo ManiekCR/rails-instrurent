@@ -17,21 +17,25 @@
   <div class="cards">
     <% @instruments.each do |instrument| %>
       <div class="card">
-        <div></div>
-        <img src="https://images.unsplash.com/photo-1525725296312-37c06d2338ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="guitar picture">
-        <div class="card-info">
-          <div class="card-description">
-            <h3><%= instrument.name %></h3>
-            <p><%= instrument.description %></p>
+        <%= link_to instrument_path(instrument) do %>
+          <img src="https://images.unsplash.com/photo-1525725296312-37c06d2338ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="guitar picture">
+          <div class="card-info">
+            <div class="card-description">
+              <h3><%= instrument.name %></h3>
+              <p><%= instrument.description %></p>
+            </div>
+            <div class="card-price">
+              <p><%= instrument.price %> €</p>
+            </div>
           </div>
-          <div class="card-price">
-            <p><%= instrument.price %> €</p>
-          </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
-  <div class="map">
+  <div
+  id="map"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 
   </div>
 </div>
