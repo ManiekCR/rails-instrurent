@@ -12,6 +12,8 @@ gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
 gem 'geocoder'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave'
 
 
 gem 'autoprefixer-rails'
