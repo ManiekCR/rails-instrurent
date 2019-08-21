@@ -1,26 +1,39 @@
-<div class="container-listing">
-  <div class="row listing-content">
-    <!-- Details box -->
-    <div class="listing col-md-8">
-      <div class="listing-title">
-        <h3><strong><%= @instrument.name %></strong></h3>
-        <p><%= @instrument.description %></p>
-      </div><br>
+<h1 class="text-center"><%= @instrument.name %></h1>
 
-      <div class="listing-details">
-        <div class="row-content">
-          <div class="col-xs-3">
-            <p><strong>Highlights</strong></p>
-          </div>
+<div class="container">
 
-          <div class="col-xs-9">
-              <%= @instrument.description %>
-          </div>
+  <div class="row">
+    <div class ="photo-container">
+      <div class="col-xs-12 col-sm-6">
+        <div class="card main-card">
+          <img src="https://images.unsplash.com/photo-1525725296312-37c06d2338ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="guitar picture">
         </div>
-        <br><br>
       </div>
 
-    <br><br><br>
+      <div class="col-xs-12 col-sm-6">
+        <div class="card main-card">
+            <div class="card-category"> <strong> <%= @instrument.category %> </strong> </div>
+            <div class="card-detail">
+              <p>Model: <strong> <%= @instrument.name %> </strong> </p>
+              <i class="fa fa-guitar" aria-hidden="true"></i>
+              <i>" <%= @instrument.description %> "</i>
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div col-xs-12 col-sm-6>
+    <div class="text-center">
+      <%= simple_form_for [@instrument] do |instrument| %>
+
+      <div class="booking-card">
+        <div>
+            <%= link_to '<button type="button" class: "btn btn-danger"> Book!</button>'.html_safe,dashboard_show_path %>
+        </div>
+        <% end%>
+      </div>
+    </div>
   </div>
 
-</div>
+
