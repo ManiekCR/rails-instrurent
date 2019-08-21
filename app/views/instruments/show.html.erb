@@ -11,7 +11,9 @@
 </div>
       <div class="book-form">
       <%= simple_form_for [@instrument, @booking] do |f| %>
+      <p>Checkin</p>
       <%= f.input :start_date %>
+      <p>Checkout</p>
       <%= f.input :end_date %>
       <%= f.button :submit, input_html: { class: "form-button" } %>
       <!-- <%= link_to '<div id ="book-button" type="button" class: "btn btn-danger"> Book!</div>'.html_safe, dashboard_show_path %>-->
