@@ -1,0 +1,9 @@
+<h2>This button should be somewhere on the dashboard :</h2>
+<% @instruments.each do |instrument| %>
+<%= instrument.name %>
+<%= link_to "Edit this item", edit_isntrument_path %>
+<% end %>
+
+  <% if policy(Instrument).create? %>
+    <%= link_to "List an instrument", new_instrument_path %>
+  <% end %>

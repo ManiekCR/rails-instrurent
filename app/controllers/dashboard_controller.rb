@@ -1,9 +1,6 @@
 class DashboardController < ApplicationController
-  # include Pundit
-  # before_action :verify_authorized, except: :show
-
+  skip_after_action :verify_authorized
   def show
-    @user = current_user
-    authorize @user
+    @instruments = current_user.instruments
   end
 end

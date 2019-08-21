@@ -1,5 +1,4 @@
 class InstrumentsController < ApplicationController
-
   before_action :set_instrument, only: [:show, :edit, :update]
   skip_before_action :authenticate_user!, only: [:index, :show]
 
@@ -14,12 +13,12 @@ class InstrumentsController < ApplicationController
 
   def new
     @instrument = Instrument.new
-    # authorize @instrument
-
+    authorize @instrument
   end
 
   def create
     @instrument = Instrument.new(instrument_params)
+    # authorize @instrument, :dashboard?
     if @instrument.save
       redirect_to instrument_path(@instrument)
     else render 'new'
@@ -39,7 +38,6 @@ class InstrumentsController < ApplicationController
 
   def set_instrument
     @instrument = Instrument.find(params[:id])
-    # authorize @instrument
   end
 
   def instrument_params
