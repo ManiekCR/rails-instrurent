@@ -1,0 +1,61 @@
+.flex-container {
+  display: flex;
+
+  img {
+    width: 400px;
+    height: auto;
+  }
+}
+
+.card-main {
+  padding: 15px;
+  margin:15px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-main > img {
+  height: auto;
+  width: 50%;
+  object-fit: cover;
+}
+
+.card-main p {
+  font-size: 14px;
+  opacity: .7;
+  margin: 0;
+}
+.card-main h2 {
+  position: relative;
+  font-size: 18px;
+  text-align: right;
+  top:-20px;
+}
+
+.card-main .card-main-detail {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+.book-form {
+  display: inline-block;
+  text-align: center;
+  margin: 0 ;
+  width: 35em;
+  padding-left: 1em;
+}
+.btn {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn:hover {
+  opacity: 1;
+}

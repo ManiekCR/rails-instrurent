@@ -1,39 +1,27 @@
-<h1 class="text-center"><%= @instrument.name %></h1>
-
-<div class="container">
-
-  <div class="row">
-    <div class ="photo-container">
-      <div class="col-xs-12 col-sm-6">
-        <div class="card main-card">
-          <img src="https://images.unsplash.com/photo-1525725296312-37c06d2338ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="guitar picture">
-        </div>
-      </div>
-
-      <div class="col-xs-12 col-sm-6">
-        <div class="card main-card">
-            <div class="card-category"> <strong> <%= @instrument.category %> </strong> </div>
-            <div class="card-detail">
-              <p>Model: <strong> <%= @instrument.name %> </strong> </p>
-              <i class="fa fa-guitar" aria-hidden="true"></i>
-              <i>" <%= @instrument.description %> "</i>
-            </div>
-
-        </div>
-      </div>
-    </div>
+<div class="show-container">
+  <div class="card-main flex-container">
+<div class="item-info">
+  <img src="https://images.unsplash.com/photo-1525725296312-37c06d2338ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="guitar picture">
+  <div class="card-information">
+    <strong> <%= @instrument.category %></strong>
+    <p>Model: <strong> <%= @instrument.name %> </strong> </p>
+    <p> <%= @instrument.description %> </p>
+    <h2 class="card-pricing"> 20$</h2>
   </div>
-  <div col-xs-12 col-sm-6>
-    <div class="text-center">
-      <%= simple_form_for [@instrument] do |instrument| %>
-
-      <div class="booking-card">
-        <div>
-            <%= link_to '<button type="button" class: "btn btn-danger"> Book!</button>'.html_safe,dashboard_show_path %>
-        </div>
-        <% end%>
-      </div>
-    </div>
+</div>
+      <div class="book-form">
+      <%= simple_form_for [@instrument, @booking] do |f| %>
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+      <%= f.button :submit, input_html: { class: "form-button" } %>
+      <!-- <%= link_to '<div id ="book-button" type="button" class: "btn btn-danger"> Book!</div>'.html_safe, dashboard_show_path %>-->
+      <% end%>
+  </div>
   </div>
 
+</div>
 
+
+
+
+<!--  -->

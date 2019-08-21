@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   # get 'users/sign_out', to: 'pages#home'
 
   get 'dashboard/show', to: 'dashboard#show'
-
-  resources :instruments
+  resources :instruments do
+    resources :bookings, only: [:new, :create]
+  end
   devise_for :users
   root to: 'pages#home'
   # only add routes as you need them

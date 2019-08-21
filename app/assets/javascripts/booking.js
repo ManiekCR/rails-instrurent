@@ -1,5 +1,5 @@
-//= require rails-ujs
-//= require_tree .
+import '../instruments/show.html.erb'
+
   $('.item').click(function() {
     $('.item').removeClass('selected');  // Clear previously selected item
     $(this).addClass('selected'); // Set the current item to selected
