@@ -9,6 +9,7 @@ require 'faker'
 require 'time'
 
 CATEGORIES = %w(violin cello piano guitar drumkit bass saxophone trumpet trombone)
+ADDRESSES = ["83 Marlboro Lane Eugene OR 97405", "62 rue Marx Dormoy Paris 75018", "17 quai fernand saguet 94700 Maisons-Alfort", "1 rue Victor Cousin Paris 75006", "13 rue de l'ancienne comedie Paris 75006", "14 rue de fleurus 59200 Tourcoing", "85 rue de Tournai 59200 Tourcoing", "Rudi-Dutschke-Str. 26 Berlin", "Eckertstr. 2b 10249 Berlin", "Berghain Berlin", "Eiffel Tower Paris", "kitkatclub berlin"]
 rndr = Random.new
 
 if Rails.env.development?
@@ -26,7 +27,6 @@ puts "generating ten users and fifty instruments"
   user = User.create!(
   email: Faker::Internet.email,
   password: Faker::Internet.password,
-  address: Faker::Address.full_address,
   )
   5.times do
     Instrument.create!(
@@ -35,7 +35,9 @@ puts "generating ten users and fifty instruments"
       description: Faker::Lorem.sentence(word_count: rndr.rand(5..30)),
       user_id: user.id,
       price: rndr.rand(5..15),
+      address: ADDRESSES.sample
       )
+
   end
 end
 
