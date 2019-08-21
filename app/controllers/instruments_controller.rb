@@ -8,7 +8,7 @@ class InstrumentsController < ApplicationController
       {
         lat: instrument.latitude,
         lng: instrument.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { instrument: instrument })
+        infoWindow: render_to_string(partial: "shared/info_window", locals: { instrument: instrument })
       }
     end
   end
@@ -39,7 +39,7 @@ class InstrumentsController < ApplicationController
     @instrument.update(instrument_params)
     redirect_to instrument_path(@instrument)
   end
-  
+
   def destroy
     @instrument = Instrument.find(params[:id])
     @instrument.destroy
