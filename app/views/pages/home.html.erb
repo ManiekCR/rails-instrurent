@@ -4,12 +4,21 @@
     <h2>Where are you located ?</h2>
    <h2>And what are you looking for ?</h2>
  </div>
-
+<!--
 <div class="search-form">
   <form action="">
     <input type="text", placeholder="Berlin...">
     <select name="item" id="item-select"></select>
-  </form>
+  </form> -->
+
+  <%= form_tag instruments_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find an instrument"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
    <div id="main-search"><%= link_to "Search", instruments_path %></div>
  </div>
 </div>
