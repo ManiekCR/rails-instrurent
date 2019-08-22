@@ -1,15 +1,18 @@
 
 .landing-container {
   padding: $spacer-y ($spacer-x/2);
-  background-image: linear-gradient(to top left, rgba(0, 0, 255, 0.08), rgb(15, 0, 31)),image_url("concert.jpg");
+  background-image: linear-gradient(to top left, rgba(200, 255, 255, 0.08), rgb(15, 0, 31)),image_url("concert.jpg");
   background-size:cover;
-  height:100vh;
+  height: 60vh;
+  min-height:400px;
+
   h1 {
     font-family: 'Monoton', sans-serif;
-    font-size:6em;
+    font-size: 4em;
   }
+
   input {
-    width:50vw;
+    width:30vw;
     height:40px;
     padding-left: 10px;
   }
@@ -19,9 +22,19 @@
   }
 
   h2 {
-  font-family: 'Raleway', sans-serif;
+  margin-top: 30px;
+  font-family: 'Open Sans', sans-serif;
   color: white;
-  font-size:1em;
+  font-weight: bold;
+}
+
+
+h3 {
+  margin-top: 20px;
+  margin-bottom: 80px;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  font-size: 2em;
 }
 
 a {
@@ -46,6 +59,19 @@ a {
   flex-align:baseline;
 }
 
+.btn-flat {
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: rgba(255, 255, 255, 0.6);
+  color: white;
+}
+
 #item-select {
   width: 30vw;
 }
@@ -53,10 +79,7 @@ a {
 #item-select {
   margin: 0 10px;
 }
-
-
 }
-
 
 #main-search {
   display: flex;
@@ -71,5 +94,112 @@ a {
     text-decoration:none;
   }
 }
+
+#add-instrument-search {
+  margin-top:10px;
+}
+
+#add-instrument-search p{
+  color:white;
+}
+
+.how-it-works-container {
+  background-size:cover;
+  margin-top: 40px;
+  height: 50vh;
+
+  h2 {
+    font-size: 32px;
+    color: black;
+    font-weight:bold;
+  }
+
+     .cards-howitworks{
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-evenly;
+      margin-bottom: 30px;
+  }
+    .card-howitworks{
+      width: 250px;
+      border-radius: 4px;
+      text-align: center;
+      padding: 20px;
+  }
+
+    .card-howitworks img {
+      height:120px;
+      width:120px;
+      margin-bottom: 20px;
+      }
+  }
+
+.benefits-container {
+  background-size:cover;
+  margin-top: 40px;
+  height: 80vh;
+  background: rgb(232,128,82);
+  background: linear-gradient(0deg, rgba(232,128,82,1) 37%, rgba(255,255,255,1) 100%);
+
+  h2{margin-bottom: 40px;
+    font-weight:bold;
+    color:black;
+  }
+   .cards-benefits{
+      display: flex;
+      margin-bottom: 30px;
+      width:100%;
+      justify-content: space-around;
+  }
+    .card-benefits{
+      color: white;
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      border-radius: 4px;
+      box-shadow: 0 0 5px rgb(230,230,230);
+      text-align: center;
+      padding: 20px;
+      border: 1px solid rgb(230,230,230);
+  }
+
+    .card-benefits img {
+      height:120px;
+      width:100px;
+      margin-bottom: 20px;
+      }
+}
+
+.hp-container{
+   .footer {
+      text-align: center;
+      padding: 8px;
+      background-color: #0E0821;
+    }
+
+   .footer p{
+     color: white;
+    }
+  }
+
+  .testimonials-container{
+      display:flex;
+      height: 45vh;
+      background-color: white;
+      p {
+      padding: 20px 120px;
+      color:black;
+      display: inline-block;
+      font-size:20px;
+      font-style: italic;
+      }
+      .testimonial-image img{
+      height:350px;
+      width:500px;
+      margin-left:50px;
+      }
+  }
+
+
 
 
