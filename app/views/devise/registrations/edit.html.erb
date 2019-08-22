@@ -20,12 +20,14 @@
 
     <div class="link-container">
      <%= f.button :submit, "Update", class: 'button-orange' %>
-    </div>
+     </div>
+
   <% end %>
   <div class="back">
   <p><%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
     <%= link_to "Back", :back %>
   </div>
+
 </div>
 
