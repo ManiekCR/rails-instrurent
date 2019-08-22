@@ -1,4 +1,4 @@
-import '../instruments/show.html.erb'
+// import '../instruments/show.html.erb'
 
   $('.item').click(function() {
     $('.item').removeClass('selected');  // Clear previously selected item

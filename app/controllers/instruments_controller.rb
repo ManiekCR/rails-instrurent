@@ -3,7 +3,6 @@ class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-# HELP
     @instruments = policy_scope(Instrument)
                     .search_by_name_and_category_and_description(params[:query])
                     .geocoded
@@ -20,6 +19,7 @@ class InstrumentsController < ApplicationController
   def show
     @instrument = Instrument.find(params[:id])
     @booking = Booking.new
+    authorize @instrument
   end
 
   def new
@@ -30,27 +30,28 @@ class InstrumentsController < ApplicationController
   def create
     @instrument = Instrument.new(instrument_params)
     @instrument.user_id = current_user.id
+    authorize @instrument
     if @instrument.save
-      redirect_to dashboard_show
+      redirect_to dashboard_show_path
     else render 'new'
     end
   end
 
   def edit
-    # @instrument = Instrument.find(params[:id])
-
-
+    authorize @instrument
   end
 
   def update
     @instrument.update(instrument_params)
-    redirect_to dashboard_show
+    redirect_to dashboard_show_path
   end
 
   def destroy
     @instrument = Instrument.find(params[:id])
     @instrument.destroy
-    redirect_to instruments_path
+    authorize @instrument
+    redirect_to dashboard_show_path
+
   end
 
   private
