@@ -1,12 +1,6 @@
 class DashboardController < ApplicationController
   def show
-    @instruments = Instrument.all
-    @bookings = Booking.all
-  end
-
-  private
-
-  def set_instrument
-
+    @instruments = current_user.instruments
+    @bookings = current_user.bookings
   end
 end
