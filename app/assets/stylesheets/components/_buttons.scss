@@ -1,4 +1,8 @@
 .button-orange {
+  #edit-user-button {
+      width:200px;
+      color: white;
+    }
     background-color: #ed6d3a ;
     border: none;
     border-radius: 8px;
@@ -12,6 +16,7 @@
   .button-orange:hover {
      background-color: #fe794575;
      color:white;
+
   }
 
 .update-button {
