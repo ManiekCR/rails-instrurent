@@ -1,11 +1,14 @@
-<div class="container">
-  <div class="col-xs-12 col-md-6">
-    <div class="card-container">
-      <img src="https://images.unsplash.com/photo-1525725296312-37c06d2338ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="guitar picture">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1525725296312-37c06d2338ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="guitar picture);">
+      <div class="container">
+        <div class="navigation">
+           <div class="col-xs-12 col-md-12" style="margin: 6px 0 0 3px">
+              <a class="nav-text" href="/instruments">Back to search results</a>
+        </div>
+        </div>
         <div class="card-information">
           <p><strong> <%= @instrument.name %> </strong> </p>
           <p> <%= @instrument.address %> </p>
-          <p> <%= @instrument.price  %>€</p>
+          <p><strong> <%= @instrument.price  %> </strong><i class="fas fa-euro-sign"></i></p>
         </div>
     </div>
   </div>
@@ -18,15 +21,10 @@
       <%= f.input :start_date %>
       <p><strong>Checkout</strong></p>
       <%= f.input :end_date %>
-     <%= f.button :submit, 'Book Now!' %>
+     <%= f.button :submit, 'Book Now!', class: "book-button" %>
       <% end%>
    </div>
   </div>
-
-  <div class="col-xs-12" style="margin: 30px 0 0 12px">
-        <a class="btn btn-info" href="/instruments">Back to search results</a>
-      </div>
-</div>
 
 
 <!--
@@ -59,3 +57,7 @@
 
 
  -->
+
+   <!-- <div class="col-xs-12 col-md-6">
+    <div class="card-container">
+      <img src="https://images.unsplash.com/photo-1525725296312-37c06d2338ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="guitar picture"> -->
