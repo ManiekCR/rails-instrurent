@@ -3,10 +3,14 @@ class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+  if params[:address]
+    @instruments = policy_scope(Instrument).near(params[:address], 10)
+  elsif params[:type]
     @instruments = policy_scope(Instrument)
-                    .search_by_name_and_category_and_description(params[:query])
-                    .geocoded
-
+    .search_by_name_and_category_and_description(params[:type])
+  else
+    @instruments = policy_scope(Instrument).first(10)
+  end
     @markers = @instruments.map do |instrument|
       {
         lat: instrument.latitude,
