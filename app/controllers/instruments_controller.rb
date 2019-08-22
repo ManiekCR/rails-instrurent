@@ -51,7 +51,6 @@ class InstrumentsController < ApplicationController
     @instrument.destroy
     authorize @instrument
     redirect_to dashboard_show_path
-
   end
 
   private
@@ -61,6 +60,6 @@ class InstrumentsController < ApplicationController
   end
 
   def instrument_params
-    params[:instrument].permit(:name, :category, :description, :price, :address)
+    params[:instrument].permit(:name, :category, :description, :price, :address, :photo)
   end
 end
