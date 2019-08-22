@@ -14,6 +14,8 @@ gem 'redis'
 gem 'geocoder'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave'
+gem 'pg_search'
+
 
 
 gem 'autoprefixer-rails'
