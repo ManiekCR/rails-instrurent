@@ -1,61 +1,54 @@
-<div class="container">
-  <div class="col-xs-12 col-md-6">
-    <div class="card-container">
-      <img src="https://images.unsplash.com/photo-1525725296312-37c06d2338ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="guitar picture">
-        <div class="card-information">
-          <p><strong> <%= @instrument.name %> </strong> </p>
-          <p> <%= @instrument.address %> </p>
-          <p> <%= @instrument.price  %>€</p>
-        </div>
+
+<div class="show-header">
+  <div class="back-to">
+    <a class="" href="/instruments">Back to search results</a>
+  </div>
+    <div class="heading"></div>
+      <h2><%= @instrument.name %></h2>
+    <div class="row">
+</div>
+<div class="show-container">
+  <div class="show-card">
+    <% if @instrument.photo %>
+      <div class="show-image">
+        <%= cl_image_tag(@instrument.photo) %>
+      </div>
+    <% else %>
+      <div class="no-photo"></div>
+    <% end %>
+    <div class="show-card-info">
+      <p>This <%= @instrument.category %> is located at <%= @instrument.address %></p>
+      <p>It costs <%= @instrument.price  %>€/day to rent</p>
+      <p><%= @instrument.description %></p>
+
+      </div>
+  </div>
+
+  <% if @instrument.user == current_user %>
+  <div class="user-action-box">
+    <div class="user-actions">
+      <p>You listed this instrument on <%= @instrument.created_at %></p>
+      <p>If you would like to modify your listing, click on one of the links below</p>
+     <div class="crud-links">
+      <%= link_to "Edit",edit_instrument_path(@instrument) %>
+       <%= link_to "Delete", instrument_path(@instrument), method: :delete, data: {confirm: "Are you sure?"} %>
+
+       </div>
     </div>
   </div>
-
-  <div class="col-xs-12 col-md-6">
-    <div class="book-form">
-      <h5> <%= @instrument.description %> </h5>
-      <%= simple_form_for [@instrument, @booking] do |f| %>
-      <p><strong>Checkin</strong></p>
-      <%= f.input :start_date %>
-      <p><strong>Checkout</strong></p>
-      <%= f.input :end_date %>
-     <%= f.button :submit, 'Book Now!' %>
-      <% end%>
-   </div>
-  </div>
-
-  <div class="col-xs-12" style="margin: 30px 0 0 12px">
-        <a class="btn btn-info" href="/instruments">Back to search results</a>
-      </div>
 </div>
 
-
-<!--
-<div class="show-container">
-  <div class="col-xs-12 col-md-6 card-main flex-container">
-
-    <div class="item-info">
-      <img src="https://images.unsplash.com/photo-1525725296312-37c06d2338ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="guitar picture">
-        <div class="card-information">
-          <p><strong> <%= @instrument.name %> </strong> </p>
-          <p> <%= @instrument.address %> </p>
-          <p> <%= @instrument.price  %>€</p>
-        </div>
-    </div>
-  </div>
-  </div>
-  <div class="col-xs-12 col-md-6 detail-container flex-container">
+  <% else %>
     <div class="book-form">
-      <p> <%= @instrument.description %> </p>
       <%= simple_form_for [@instrument, @booking] do |f| %>
-      <p>Checkin</p>
+      <p><strong>Start Date</strong></p>
       <%= f.input :start_date %>
-      <p>Checkout</p>
+      <p><strong>End Date</strong></p>
       <%= f.input :end_date %>
-     <%= f.button :submit, 'Book Now!' %>
+      <input type="submit" name="commit" value="Book Now!" class="button-orange" data-disable-with="Book Now!" />
       <% end%>
+      <% end %>
    </div>
   </div>
+</div>
 
-
-
- -->

@@ -1,22 +1,35 @@
-.container {
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-}
-.card-container img {
-    width: 100%;
-    height: auto;
+.show-header {
+  h2 {
+    text-align:center;
+  }
 }
 
-.card-container {
+.user-actions {
+  display:flex;
+  flex-direction:column;
+}
+.show-container {
+padding:0 5vw;
+display:flex;
+width:100vw;
+border:solid 1px red;
+}
 
+.show-card-info {
+  padding: 5vh;
+}
+
+.show-card {
+  display:flex;
+  flex-direction:column;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  max-width: 400px;
-  margin: 30px 0 0 0;
-  text-align: left;
+  width:400px;
+  border:solid 1px blue;
+  margin-right:10vw;
+  img {
+    width:100%;
+  }
 }
-
 
 .card-container p {
   font-size: 18px;
@@ -25,115 +38,26 @@
   font-family:'Raleway', sans-serif;
 }
 
-
-.book-form {
-
-  border: 1px solid #e4e4e4 !important;
+.user-action-box {
+    border: 1px solid #e4e4e4 !important;
   text-align: center;
-  max-width: 400px;
+  width: 400px;
   padding: 15px;
   margin:30px 0 0 0;
+  background-color:white;
+  font-family: 'Raleway', sans-serif;
+}
+
+.book-form {
+  border: 1px solid #e4e4e4 !important;
+  text-align: center;
+  width: 400px;
+  padding: 15px;
+  margin:30px 0 0 0;
+  background-color:white;
   font-family: 'Raleway', sans-serif;
   p {
     position: relative;
     bottom: -37px;
   }
 }
-
-.btn {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
-  padding: 8px 24px;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-.btn:hover {
-  opacity: 1;
-}
-
-@media (min-width: 992px) {
-.col-md-6 {
-    width: 50%;
-}
-}
-@media (min-width: 992px) {
-.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
-    float: left;
-    }
-  }
-
-//   *{
-//   box-sizing: border-box;
-// }
-
-// .flex-container {
-//   display: flex;
-
-//   img {
-//     width: 400px;
-//     height: auto;
-//   }
-// }
-
-// .card-main {
-//   padding: 15px;
-//   margin:15px;
-//   overflow: hidden;
-//   background: white;
-//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-// }
-
-
-// .card-main p {
-//   font-size: 18px;
-//   line-height: 1.42857;
-//   color: #333333;
-//   font-family:'Raleway', sans-serif;
-// }
-
-
-// .book-form {
-
-//   border: 1px solid #e4e4e4 !important;
-//   display: inline-block;
-//   text-align: center;
-
-//   width: 35em;
-//   padding: 15px;
-//   margin:15px;
-// }
-
-
-// .book-form p {
-//   padding: 0;
-// }
-// .btn }
-// {
-//   color: #4A4A4A;
-//   border: 1px solid #4A4A4A;
-//   padding: 8px 24px;
-//   border-radius: 50px;
-//   font-weight: lighter;
-//   opacity: 0.6;
-//   transition: opacity 0.3s ease;
-// }
-
-// .btn:hover {
-//   opacity: 1;
-// }
-
-// @media (min-width: 992px) {
-// .col-md-6 {
-//     width: 50%;
-// }
-// }
-// @media (min-width: 992px) {
-// .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
-//     float: left;
-//     }
-
-
-
