@@ -3,7 +3,8 @@ class InstrumentsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @instruments = Instrument.geocoded
+    @instruments = Instrument.search_by_name_and_category_and_description(params[:query]).geocoded
+    # @instruments = Instrument.geocoded
     @markers = @instruments.map do |instrument|
       {
         lat: instrument.latitude,

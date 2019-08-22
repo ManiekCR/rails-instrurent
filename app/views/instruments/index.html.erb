@@ -13,6 +13,15 @@
     </ul>
   </div>
 </nav>
+<%= form_tag instruments_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find an instrument"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <div class="main-container">
   <div class="cards">
     <% @instruments.each do |instrument| %>
