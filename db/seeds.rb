@@ -27,6 +27,7 @@ puts "generating ten users and fifty instruments"
   user = User.create!(
   email: Faker::Internet.email,
   password: Faker::Internet.password,
+  admin:false
   )
   5.times do
     Instrument.create!(
@@ -37,7 +38,6 @@ puts "generating ten users and fifty instruments"
       price: rndr.rand(5..15),
       address: ADDRESSES.sample
       )
-
   end
 end
 

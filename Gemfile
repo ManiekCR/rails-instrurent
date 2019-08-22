@@ -3,6 +3,8 @@ ruby '2.6.3'
 
 gem 'devise'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
+gem 'pundit'
+
 
 gem 'bootsnap', require: false
 gem 'jbuilder', '~> 2.0'
@@ -11,6 +13,8 @@ gem 'puma'
 gem 'rails', '5.2.3'
 gem 'redis'
 gem 'geocoder'
+gem 'cloudinary', '~> 1.9.1'
+gem 'carrierwave', '~> 1.2'
 gem 'pg_search'
 gem 'searchkick', '~> 3.0'
 gem 'autoprefixer-rails'
