@@ -1,11 +1,17 @@
 .crud-form {
-
-
+  background-color:white;
+  .button {
+    background-color: #F3633F;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+  }
   .form-inputs{
-
      .form-control-label {
       color:black;
-
      }
     }
 
@@ -31,9 +37,6 @@
      font-size:5vw;
   }
 
-  .back{
-
-     }
 
   .back a {
     color: grey;

@@ -28,7 +28,7 @@ class InstrumentsController < ApplicationController
     @instrument = Instrument.new(instrument_params)
     @instrument.user_id = current_user.id
     if @instrument.save
-      redirect_to dashboard_show
+      redirect_to dashboard_show_path
     else render 'new'
     end
   end
@@ -38,23 +38,22 @@ class InstrumentsController < ApplicationController
 
   def update
     @instrument.update(instrument_params)
-    redirect_to dashboard_show
+    redirect_to dashboard_show_path
   end
 
   def destroy
     @instrument = Instrument.find(params[:id])
     @instrument.destroy
-    redirect_to instruments_path
+    redirect_to dashboard_show_path
   end
 
   private
 
   def set_instrument
     @instrument = Instrument.find(params[:id])
-    # authorize @instrument
   end
 
   def instrument_params
-    params[:instrument].permit(:name, :category, :description, :price, :address)
+    params[:instrument].permit(:name, :category, :description, :price, :address, :photo)
   end
 end
