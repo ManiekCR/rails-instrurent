@@ -34,9 +34,6 @@ class InstrumentsController < ApplicationController
   end
 
   def edit
-    # @instrument = Instrument.find(params[:id])
-
-
   end
 
   def update
