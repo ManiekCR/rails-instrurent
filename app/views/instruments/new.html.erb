@@ -1,11 +1,13 @@
 <html>
-  <body style="background-color:white">
-      <div class="container">
-        <h1><b>Add a New Instrument</b></h1>
-        <%= render "form" %>
+  <body>
+      <div class="form-container">
+        <div class="form-headline">
+          <h1>List your instrument</h1>
+        </div>
+        <%= render "shared/form" %>
         <br>
         <div class="back">
-        <%= link_to "Back", instruments_path, style: 'color: #787878' %>
+        <%= link_to "Back", instruments_path %>
       </div>
       </div>
     </body>

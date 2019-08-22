@@ -6,22 +6,17 @@
     <strong> <%= @instrument.category %></strong>
     <p>Model: <strong> <%= @instrument.name %> </strong> </p>
     <p> <%= @instrument.description %> </p>
-    <h2 class="card-pricing"> 20$</h2>
+    <h2 class="card-pricing"> <%= @instrument.price %></h2>
   </div>
 </div>
       <div class="book-form">
       <%= simple_form_for [@instrument, @booking] do |f| %>
       <%= f.input :start_date %>
       <%= f.input :end_date %>
-      <%= f.button :submit, input_html: { class: "form-button" } %>
-      <!-- <%= link_to '<div id ="book-button" type="button" class: "btn btn-danger"> Book!</div>'.html_safe, dashboard_show_path %>-->
+     <%= f.button :submit, 'Book Now!' %>
+
       <% end%>
   </div>
   </div>
 
 </div>
-
-
-
-
-<!--  -->
