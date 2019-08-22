@@ -1,4 +1,12 @@
 class BookingsController < ApplicationController
+
+  def show
+    @instruments = current_user.instruments
+    @bookings = current_user.bookings
+    @instrument = find(params[:instrument_id])
+    @booking = find(params[:id])
+  end
+
   def new
     @booking = Booking.new
     @instrument = Instrument.find(params[:id])
