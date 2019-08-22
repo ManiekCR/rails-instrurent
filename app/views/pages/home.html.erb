@@ -1,12 +1,17 @@
 <div class="landing-container">
   <h1><span id="firsthalf">Instru</span><span id="secondhalf">Rent</span></h1>
-  <h2>What are you looking for ?</h2>
-
+ <div class="d-flex">
+    <h2>Where are you located ?</h2>
+   <h2>And what are you looking for ?</h2>
+ </div>
 <div class="search-form">
-  <form action="">
-    <input type="text", placeholder="Vintage...">
-    <select name="item" id="item-select" placeholder="Guitar..."></select>
-  </form>
-   <div id="main-search"><%= link_to "Search", instruments_path %></div>
+  <%= form_tag instruments_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "search-form",
+    placeholder: "Find an instrument"
+  %>
+  <div id="main-search"><%= submit_tag "Search" %></div>
+<% end %>
  </div>
 </div>
