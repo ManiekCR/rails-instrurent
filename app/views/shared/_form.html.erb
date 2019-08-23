@@ -12,7 +12,61 @@
     <% end %>
     <div class="form-inputs">
       <%= f.input :name %>
-      <%= f.input :category, collection: %w[Drums Pianos Orgs Guitars] %>
+      <%= f.input :category, collection: ["Accordion",
+"Bagpipes",
+"Banjo",
+"Bass guitar",
+"Bassoon",
+"Bells",
+"Bongo",
+"Castanets",
+"Cello",
+"Clarinet",
+"Cornet",
+"Cymbal",
+"Didgeridoo",
+"Double bass",
+"Drum kit",
+"Electric Guitar",
+"Flugelhorn",
+"Flute",
+"French horn",
+"Glockenspiel",
+"Gong",
+"Guitar",
+"Harmonica",
+"Harp",
+"Harpsichord",
+"Kazoo",
+"Mandolin",
+"Maracas",
+"Marimba",
+"Mbira",
+"Oboe",
+"Ocarina",
+"Organ",
+"Pan Pipes",
+"Pennywhistle",
+"Piano",
+"Piccolo",
+"Pitch Pipe",
+"Recorder",
+"Saxophone",
+"Sitar",
+"Steelpan",
+"Synthesizer",
+"Tambourine",
+"Timpani",
+"Triangle",
+"Trombone",
+"Trumpet",
+"Tuba",
+"Ukulele",
+"Viola",
+"Violin",
+"Xylophone",
+"Zither",
+"Other"] %>
       <%= f.input :description %>
       <%= f.input :address %>
       <%= f.input :photo %>
@@ -24,3 +78,4 @@
       </div>
   <% end %>
   </div>
+

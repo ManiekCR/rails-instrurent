@@ -1,3 +1,4 @@
+<div class="dash">
 <ul class="nav nav-tabs mt-3 ml-4" id="myTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Requests received</a>
@@ -14,7 +15,11 @@
     <% @instruments.each do |instrument| %>
         <div class="notification">
           <%= link_to instrument_path(instrument) do %>
-          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' />
+         <% if instrument.photo.file %>
+          <%= cl_image_tag instrument.photo, size: "200x200" %>
+          <% else %>
+          <%= image_tag 'record-player.png',size: "200x200" %>
+          <% end %>
           <% end %>
           <div class="notification-content">
       <%= link_to instrument_path(instrument) do %>
@@ -42,7 +47,11 @@
     <%= link_to instrument_path(booking.instrument) do %>
         <div class="notification">
           <p><%= booking.status %></p>
-          <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' />
+          <% if booking.instrument.photo.file %>
+          <%= cl_image_tag booking.instrument.photo, size: "200x200" %>
+          <% else %>
+          <%= image_tag 'record-player.png',size: "200x200" %>
+          <% end %>
           <div class="notification-content">
             <p><small><%= booking.instrument.name %></small></p>
             <p><%= booking.instrument.description %></p>
@@ -62,15 +71,20 @@
         </div>
       </div>
       <div class="d-flex flex-row-reverse mr-5 mt-2">
-        <%= link_to new_instrument_path do %>
-          <p class="button-orange"> List an instrument</p>
-        <% end %>
       </div>
-      <div class="cards">
+      <div class="list-cards">
         <% @instruments.each do |instrument| %>
-          <div class="card">
+
             <%= link_to instrument_path(instrument) do %>
-              <img src="https://images.unsplash.com/photo-1525725296312-37c06d2338ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="guitar picture">
+            <div class="card">
+            <div class="item-photo">
+              <% if instrument.photo.file %>
+                <%= cl_image_tag instrument.photo, size: "200x200" %>
+              <% else %>
+                <%= image_tag 'record-player.png', size: "200x200" %>
+              <% end %>
+              </div>
+
               <div class="card-info">
                 <div class="card-description">
                   <h3><%= instrument.name %></h3>
@@ -79,16 +93,22 @@
                 <div class="card-price">
                   <p><%= instrument.price %> €</p>
                 </div>
+              </div>
+              <div class="edit-delete">
                 <div id="edit-instrument">
-                  <%= link_to "Edit", edit_instrument_path(instrument) %>
-                </div>
-                <%= link_to "Delete", instrument_path(instrument), method: :delete %>
-                <div id="delete-instrument">
-                </div>
+                    <%= link_to "Edit", edit_instrument_path(instrument) %>
+                  </div>
+                  <div id="delete-instrument">
+                     <%= link_to "Delete", instrument_path(instrument), method: :delete %>
+                  </div>
               </div>
             <% end %>
           </div>
         <% end %>
       </div>
+              <%= link_to new_instrument_path do %>
+          <p class="button-orange" id="fix-width"> List a new instrument</p>
+        <% end %>
     </div></div>
+</div>
 </div>
