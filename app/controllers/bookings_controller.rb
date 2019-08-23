@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     @booking.instrument = @instrument
     @booking.user = current_user
     if @booking.save
-      redirect_to dashboard_show_path
+      redirect_to bookings_path
     else
       redirect_to instrument_path(@instrument)
     end
