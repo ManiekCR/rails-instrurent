@@ -3,7 +3,12 @@
   <% @bookings.each do |booking| %>
     <div class="notification">
       <p><%= booking.status %></p>
-      <img src='https://kitt.lewagon.com/placeholder/users/arthur-littm' />
+       <% if booking.instrument.photo.file %>
+          <%= cl_image_tag booking.instrument.photo, size: "200x200" %>
+          <% else %>
+          <%= image_tag 'record-player.png',size: "200x200" %>
+          <% end %>
+
       <div class="notification-content">
         <p><small><%= booking.instrument.name %></small></p>
         <p><%= booking.instrument.description %></p>
