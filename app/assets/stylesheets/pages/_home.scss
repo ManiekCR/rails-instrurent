@@ -48,7 +48,7 @@ a {
 
 
 #firsthalf {
-  color:#e88053;
+  color:#F3633F;
 
 }
 
@@ -117,6 +117,9 @@ a {
     font-weight:bold;
   }
 
+  h3{
+     font-weight:bold;
+    }
      .cards-howitworks{
       margin-top: 40px;
       display: flex;
@@ -124,7 +127,7 @@ a {
       margin-bottom: 30px;
   }
     .card-howitworks{
-      width: 250px;
+      width: 300px;
       border-radius: 4px;
       text-align: center;
       padding: 20px;
@@ -146,6 +149,7 @@ a {
     font-weight:bold;
     color:black;
   }
+
    .cards-benefits{
       display: flex;
       margin-bottom: 30px;
@@ -187,7 +191,7 @@ a {
       height: 45vh;
       background-color: white;
       p {
-      padding: 80px 40px 20px;
+      padding: 110px 40px 20px;
       color:black;
       display: inline-block;
       font-size:20px;
@@ -195,7 +199,7 @@ a {
       }
       .testimonial-image img{
       height:300px;
-      width:400px;
+      width:420px;
       margin-left:70px;
       }
       h5{
