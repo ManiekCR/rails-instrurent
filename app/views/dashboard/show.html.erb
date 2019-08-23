@@ -23,9 +23,9 @@
         <div class="card">
           <%= link_to instrument_path(instrument) do %>
           <% if instrument.photo.file %>
-          <%= cl_image_tag instrument.photo, size: "200x200" %>
+          <%= cl_image_tag instrument.photo, size: "300x200" %>
           <% else %>
-          <%= image_tag 'record-player.png', size: "200x200" %>
+          <%= image_tag 'record-player.png', size: "300x200" %>
           <% end %>
           <div class="card-info">
             <div class="card-description">
