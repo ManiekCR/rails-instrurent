@@ -1,10 +1,8 @@
 class BookingsController < ApplicationController
 
-  def show
+  def index
     @instruments = current_user.instruments
-    @bookings = current_user.bookings
-    @instrument = find(params[:instrument_id])
-    @booking = find(params[:id])
+    @bookings = policy_scope(current_user.bookings)
   end
 
   def new
