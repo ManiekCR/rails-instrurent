@@ -1,5 +1,3 @@
-
-
 <div class="show-header">
   <div class="back-to">
     <a class="" href="/instruments"><i class="fas fa-chevron-left"></i> Back to search results</a>
@@ -17,13 +15,15 @@
     <% else %>
       <%= image_tag 'record-player.png', class: "no-photo" %>
     <% end %>
-    <div class="show-card-info">
+
+  </div>
+<!--   item 3 in grid
+ -->   <div class="show-card-info">
       <p>This <%= @instrument.category %> is located at <%= @instrument.address %></p>
       <p>It costs <%= @instrument.price  %>€/day to rent</p>
       <p><%= @instrument.description %></p>
 
     </div>
-  </div>
 <!--   item 2 in grid -->
   <% if @instrument.user == current_user %>
   <div class="user-action-box item2">
@@ -40,9 +40,7 @@
   <div class="book-container item2">
     <div class="book-form">
       <%= simple_form_for [@instrument, @booking] do |f| %>
-      <p><strong>Start Date</strong></p>
       <%= f.input :start_date %>
-      <p><strong>End Date</strong></p>
       <%= f.input :end_date %>
       <input type="submit" name="commit" value="Book Now!" class="button-orange" data-disable-with="Book Now!" />
       </div>

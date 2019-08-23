@@ -1,89 +1,82 @@
 <div class="dash">
-<ul class="nav nav-tabs mt-3 ml-4" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My instruments</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Requests received</a>
-  </li>
-</ul>
-<div class="tab-content mt-4 mx-5" id="myTabContent">
-  <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
-    <% @instruments.each do |instrument| %>
-        <div class="notification">
-          <%= link_to instrument_path(instrument) do %>
-         <% if instrument.photo.file %>
-          <%= cl_image_tag instrument.photo, size: "200x200" %>
-          <% else %>
-          <%= image_tag 'record-player.png',size: "200x200" %>
-          <% end %>
-          <% end %>
-          <div class="notification-content">
-      <%= link_to instrument_path(instrument) do %>
-            <p><small><%= instrument.name %></small></p>
-            <p><%= instrument.description %></p>
-          </div>
-      <% end %>
-          <div>
-            <i class="fas fa-check-circle px-2"></i>
-            <i class="fas fa-times-circle px-2"></i>
-          </div>
-          <%= link_to instrument_path(instrument) do %>
-          <div class="notification-date pl-2">
-            <p>Dates:</p>
-            <p><%= instrument.user.bookings[0].start_date %></p>
-            <p><%= instrument.user.bookings[0].end_date %></p>
-          </div>
-          <% end %>
-          <p class="pl-2"><%= instrument.user.email %></p>
-        </div>
-    <% end %>
-  </div>
-  <div class="tab-pane fade show active" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-    <div class="main-container">
+  <ul class="nav nav-tabs mt-3 ml-4" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My listings</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Requests received</a>
+    </li>
+  </ul>
+  <div class="tab-content mt-4 mx-5" id="myTabContent">
+    <div class="tab-pane fade show active" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+      <div class="main-container">
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
         </div>
       </div>
-      <div class="d-flex flex-row-reverse mr-5 mt-2">
+      <div class="d-flex flex-center mb-2">
+        <%= link_to new_instrument_path do %>
+        <p class="button-orange"> List an instrument</p>
+        <% end %>
       </div>
-      <div class="list-cards">
+      <div class="user-dashboard-cards">
         <% @instruments.each do |instrument| %>
-
-            <%= link_to instrument_path(instrument) do %>
-            <div class="card">
-            <div class="item-photo">
-              <% if instrument.photo.file %>
-                <%= cl_image_tag instrument.photo, size: "200x200" %>
-              <% else %>
-                <%= image_tag 'record-player.png', size: "200x200" %>
-              <% end %>
-              </div>
-
-              <div class="card-info">
-                <div class="card-description">
-                  <h3><%= instrument.name %></h3>
-                  <p><%= instrument.description %></p>
-                </div>
-                <div class="card-price">
-                  <p><%= instrument.price %> €</p>
-                </div>
-              </div>
-              <div class="edit-delete">
-                <div id="edit-instrument">
-                  <%= link_to "Edit", edit_instrument_path(instrument) %>
-                </div>
-                <%= link_to "Delete", instrument_path(instrument), method: :delete, data: {confirm: "Are you sure?"} %>
-                <div id="delete-instrument">
-                </div>
-
-              </div>
-            <% end %>
+        <div class="card">
+          <%= link_to instrument_path(instrument) do %>
+          <% if instrument.photo.file %>
+          <%= cl_image_tag instrument.photo, size: "300x200" %>
+          <% else %>
+          <%= image_tag 'record-player.png', size: "300x200" %>
+          <% end %>
+          <div class="card-info">
+            <div class="card-description">
+              <h3><%= instrument.name %></h3>
+              <p><%= truncate(instrument.description, length: 80) %></p>
+            </div>
+            <div class="card-price">
+              <p><%= instrument.price %> €</p>
+            </div>
+            <div id="edit-instrument">
+              <%= link_to "Edit", edit_instrument_path(instrument) %>
+            </div>
+            <div id="delete-instrument">
+              <%= link_to "Delete", instrument_path(instrument), method: :delete %>
+            </div>
           </div>
+          <% end %>
+        </div>
         <% end %>
       </div>
-              <%= link_to new_instrument_path do %>
-          <p class="button-orange" id="fix-width"> List a new instrument</p>
+    </div>
+    <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <% @instruments.each do |instrument| %>
+      <div class="notification">
+        <%= link_to instrument_path(instrument) do %>
+        <% if instrument.photo.file %>
+        <%= cl_image_tag instrument.photo, size: "200x200" %>
+        <% else %>
+        <%= image_tag 'record-player.png',size: "200x200" %>
         <% end %>
-    </div></div>
-</div>
+        <% end %>
+        <div class="notification-content">
+          <%= link_to instrument_path(instrument) do %>
+          <p><small><%= instrument.name %></small></p>
+          <p><%= instrument.description %></p>
+        </div>
+        <% end %>
+        <div>
+          <i class="fas fa-check-circle px-2"></i>
+          <i class="fas fa-times-circle px-2"></i>
+        </div>
+        <%= link_to instrument_path(instrument) do %>
+        <div class="notification-date pl-2">
+          <p>Dates:</p>
+          <p><%= instrument.user.bookings[0].start_date %></p>
+          <p><%= instrument.user.bookings[0].end_date %></p>
+        </div>
+        <% end %>
+        <p class="pl-2"><%= instrument.user.email %></p>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>

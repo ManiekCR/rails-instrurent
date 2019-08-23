@@ -47,6 +47,7 @@ class InstrumentsController < ApplicationController
 
   def update
     @instrument.update(instrument_params)
+    authorize @instrument
     redirect_to dashboard_show_path
   end
 

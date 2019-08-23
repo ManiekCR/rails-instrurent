@@ -1,23 +1,15 @@
 .button-orange {
-  #edit-user-button {
-      width:200px;
-      color: white;
-    }
-    background-color: #ed6d3a ;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    padding: 5px 0;
-  }
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #F36240;
+  transition: background 0.3s ease;
+}
 
-  .button-orange:hover {
-     background-color: #fe794575;
-     color:white;
-
-  }
+.button-orange:hover {
+  background: #e87c64;
+  color: white;
+}
 
 .update-button {
   background-color: #F3633F;
