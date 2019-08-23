@@ -1,17 +1,14 @@
 <div class="dash">
 <ul class="nav nav-tabs mt-3 ml-4" id="myTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Requests received</a>
+    <a class="nav-link active" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My instruments</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">My bookings</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">My instruments</a>
+    <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Requests received</a>
   </li>
 </ul>
 <div class="tab-content mt-4 mx-5" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+  <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
     <% @instruments.each do |instrument| %>
         <div class="notification">
           <%= link_to instrument_path(instrument) do %>
@@ -42,30 +39,7 @@
         </div>
     <% end %>
   </div>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    <% @bookings.each do |booking| %>
-    <%= link_to instrument_path(booking.instrument) do %>
-        <div class="notification">
-          <p><%= booking.status %></p>
-          <% if booking.instrument.photo.file %>
-          <%= cl_image_tag booking.instrument.photo, size: "200x200" %>
-          <% else %>
-          <%= image_tag 'record-player.png',size: "200x200" %>
-          <% end %>
-          <div class="notification-content">
-            <p><small><%= booking.instrument.name %></small></p>
-            <p><%= booking.instrument.description %></p>
-          </div>
-          <div class="notification-date">
-            <p>Dates:</p>
-            <p><%= booking.start_date %></p>
-            <p><%= booking.end_date %></p>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+  <div class="tab-pane fade show active" id="contact" role="tabpanel" aria-labelledby="contact-tab">
     <div class="main-container">
         <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
         </div>
@@ -96,11 +70,12 @@
               </div>
               <div class="edit-delete">
                 <div id="edit-instrument">
-                    <%= link_to "Edit", edit_instrument_path(instrument) %>
-                  </div>
-                  <div id="delete-instrument">
-                     <%= link_to "Delete", instrument_path(instrument), method: :delete %>
-                  </div>
+                  <%= link_to "Edit", edit_instrument_path(instrument) %>
+                </div>
+                <%= link_to "Delete", instrument_path(instrument), method: :delete, data: {confirm: "Are you sure?"} %>
+                <div id="delete-instrument">
+                </div>
+
               </div>
             <% end %>
           </div>

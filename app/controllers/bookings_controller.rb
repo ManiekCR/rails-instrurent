@@ -1,4 +1,10 @@
 class BookingsController < ApplicationController
+
+  def index
+    @instruments = current_user.instruments
+    @bookings = policy_scope(current_user.bookings)
+  end
+
   def new
     @booking = Booking.new
     @instrument = Instrument.find(params[:id])
