@@ -1,6 +1,17 @@
 .show-header {
+  position:relative;
   h2 {
     text-align:center;
+    height:100%;
+    margin-top:50px;
+  }
+  a {
+    color:grey;
+    text-decoration:none;
+    padding:10px;
+    margin:10px;
+    position:absolute;
+    top:-60px;
   }
 }
 
@@ -10,26 +21,47 @@
 }
 .show-container {
 padding:0 5vw;
-display:flex;
+display:grid;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: 1fr 1fr 1fr;
 width:100vw;
-border:solid 1px red;
+margin-top: 10vh;
+
+}
+
+
+.show-card {
+  grid-column-start:1;
+  grid-column-end:2;
+  grid-row-start:1;
+  grid-row-end:3;
+  display:flex;
+  flex-direction:column;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width:400px;
+  margin-right:10vw;
+  img {
+    width:100%;
+  }
+}
+
+.item2 {
+  grid-column-start:2;
+  grid-column-end:3;
+  grid-row-start:2;
+  grid-row-end:3;
+}
+.no-photo {
+  height:400px;
+  width:400px;
+  background-color:white;
+
 }
 
 .show-card-info {
   padding: 5vh;
 }
 
-.show-card {
-  display:flex;
-  flex-direction:column;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  width:400px;
-  border:solid 1px blue;
-  margin-right:10vw;
-  img {
-    width:100%;
-  }
-}
 
 .card-container p {
   font-size: 18px;
