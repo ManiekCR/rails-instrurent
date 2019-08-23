@@ -1,4 +1,10 @@
 class BookingsController < ApplicationController
+
+  def index
+    @instruments = current_user.instruments
+    @bookings = policy_scope(current_user.bookings)
+  end
+
   def new
     @booking = Booking.new
     @instrument = Instrument.find(params[:id])
@@ -6,7 +12,9 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
+    authorize @booking
     @instrument = Instrument.find(params[:instrument_id])
+    authorize @instrument
     @booking.instrument = @instrument
     @booking.user = current_user
     if @booking.save
@@ -14,6 +22,18 @@ class BookingsController < ApplicationController
     else
       redirect_to instrument_path(@instrument)
     end
+  end
+
+  def edit
+    authorize @booking
+  end
+
+  def update
+    authorize @booking
+  end
+
+  def destroy
+    authorize @booking
   end
 
   private

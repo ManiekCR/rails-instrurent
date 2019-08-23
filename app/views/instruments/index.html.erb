@@ -1,27 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Dates <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Category</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Price</a>
-      </li>
-    </ul>
+<div class="filters">
+  <div class="location-search">
+    <div class="search-form">
+      <form action="/instruments" accept-charset="UTF-8" method="get">
+        <input name="utf8" type="hidden" value="&#x2713;" />
+        <input type="text" name="address" id="query" placeholder="City" class="main-search form-control form-input" />
+        <input type="submit" name="commit" value="Refresh" id="submit-search" data-disable-with="Search" class="form-control" />
+      </form>
+    </div>
   </div>
-</nav>
-<div class="search-form">
-<%= form_tag instruments_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "main-search",
-    placeholder: "Find an instrument"
-  %>
-  <%= submit_tag "Search", id: "main-search" %>
-<% end %>
+  <div class="item-search">
+    <form action="/instruments" accept-charset="UTF-8" method="get" class="">
+      <input name="utf8" type="hidden" value="&#x2713;"/>
+      <input type="text" name="type" id="query" placeholder="Type of instrument" class="main-search form-control form-input" />
+      <input type="hidden" id="query" name="address" value="<%= params[:address] %>" class="form-control">
+      <input type="submit" name="commit" value="Filter" id="submit-search" data-disable-with="Search" />
+    </form>
+  </div>
 </div>
 
 <div class="main-container">
@@ -29,14 +23,21 @@
     <% @instruments.each do |instrument| %>
       <div class="card">
         <%= link_to instrument_path(instrument) do %>
-          <img src="https://images.unsplash.com/photo-1525725296312-37c06d2338ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="guitar picture">
+          <div class="item-photo">
+            <% if instrument.photo.file %>
+              <%= cl_image_tag instrument.photo, size: "200x200" %>
+            <% else %>
+           <!--  <%= image_tag 'record-player.png', size: "200x200" %> -->
+            <% end %>
+            </div>
+
           <div class="card-info">
             <div class="card-description">
               <h3><%= instrument.name %></h3>
-              <p><%= instrument.description %></p>
+              <p><%=h truncate(instrument.description, length: 15) %></p>
             </div>
-            <div class="card-price">
-              <p><%= instrument.price %> €</p>
+            <div class="card-price mt-2">
+              <p><%= instrument.price %> €/day</p>
             </div>
           </div>
         <% end %>
