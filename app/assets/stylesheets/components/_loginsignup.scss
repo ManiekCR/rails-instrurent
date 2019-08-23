@@ -44,18 +44,18 @@
 
 }
 
-
-
 .white-text-btn {
   color:white;
   &:hover {
-    color: #939393;
+    color: #E0E0E0;
   }
 }
 
 .tiny-links {
   font-size:0.8em;
   margin:3px;
+  margin-top:10px;
+  margin-bottom: 120px;
 }
 #already, #forgot {
   text-align:center;
@@ -64,5 +64,6 @@
 }
 
 #create-account {
-  margin-top:$spacer-y;
+  margin-top:20px;
+  margin-bottom: 120px;
 }
