@@ -1,76 +1,33 @@
 <div class="form-container">
+  <br>
   <div class="form-headline">
-    <h1>Edit <%= resource_name.to_s.humanize %></h1>
+    <h2>Edit <%= resource_name.to_s.humanize %></h2>
   </div>
-  <div class="crud-form">
-    <form class="simple_form edit_user" id="edit_user" novalidate="novalidate" action="/users/edit" accept-charset="UTF-8" method="post">
-        <input name="utf8" type="hidden" value="&#x2713;" />
-        <input type="hidden" name="_method" value="patch" />
-        <input type="hidden" name="authenticity_token" value="B/3e2glttczI88ozEHcnFYuPRwk6d1wwyVuOb2uEeBUkAGzJ9xKpJdcZW8pSeePSYUUP5cXtKNeGnWXU/waIbA==" />
-        <div class="form-inputs">
-          <div class="form-group password optional user_password">
-            <label class="form-control-label password optional" for="user_password">Password</label>
-            <input class="form-control password optional" autocomplete="new-password" type="password" name="user[password]" id="user_password" />
-            <small class="form-text text-muted">leave it blank if you don&#39;t want to change it</small>
-          </div>
-        <div class="form-group password optional user_password_confirmation">
-          <label class="form-control-label password optional" for="user_password_confirmation">Password confirmation</label>
-          <input class="form-control password optional" autocomplete="new-password" type="password" name="user[password_confirmation]" id="user_password_confirmation" />
-        </div>
-        <div class="form-group password required user_current_password">
-          <label class="form-control-label password required" for="user_current_password">Current password <abbr title="required">*</abbr></label>
-          <input class="form-control password required" autocomplete="current-password" required="required" aria-required="true" type="password" name="user[current_password]" id="user_current_password" /><small class="form-text text-muted">we need your current password to confirm your changes</small>
-        </div>
-      </div>
-      <div class="form-actions">
-        <!-- <input type="submit" name="commit" value="Edit you Account" class="button-orange" data-disable-with="Edit your Account"> -->
-   <div class="back">
-        <div class="update-button">
-          <p style="text-align: center;" ><input type="submit" name="commit" value="Update" class="btn" data-disable-with="Update" /></p>
-</form>        </div>
-      <p><a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/users">Cancel my account</a></p>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= f.error_notification %>
 
-    </div>
-
-
-
-
-
-<!--
-<div class="form-container">
-
-  <div class="form-headline">
-    <h1>Edit <%= resource_name.to_s.humanize %></h1>
-  </div>
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= f.error_notification %>
-
+    <div class="crud-form">
       <%= f.input :email, required: true, autofocus: true %>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
-      <%= f.input :password,
-                  hint: "leave it blank if you don't want to change it",
-                  required: false,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :password_confirmation,
-                  required: false,
-                  input_html: { autocomplete: "new-password" } %>
-      <%= f.input :current_password,
-                  hint: "we need your current password to confirm your changes",
-                  required: true,
-                  input_html: { autocomplete: "current-password" } %>
 
-      <div class="back">
-        <div class="update-button">
-          <p style="text-align: center;" ><%= f.button :submit, "Update" %></p>
-          <% end %>
-        </div>
-      <p><%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-      <%= link_to "Back", :back %>
-      </div>
+      <%= f.input :new_password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+      <%= f.input :new_password_confirmation, required: false %>
+      <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+    </div>
+
+    <div class="link-container">
+     <%= f.button :submit, "Update", class: 'button-orange' %>
+     </div>
+
+  <% end %>
+  <div class="back">
+  <p><%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+    <%= link_to "Back", :back %>
+  </div>
+
 </div>
 
-
- -->
