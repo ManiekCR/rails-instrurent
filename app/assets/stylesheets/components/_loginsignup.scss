@@ -44,12 +44,10 @@
 
 }
 
-
-
 .white-text-btn {
   color:white;
   &:hover {
-    color: #939393;
+    color: #E0E0E0;
   }
 }
 
@@ -64,5 +62,6 @@
 }
 
 #create-account {
-  margin-top:$spacer-y;
+  margin-top:20px;
+  margin-bottom: 120px;
 }
