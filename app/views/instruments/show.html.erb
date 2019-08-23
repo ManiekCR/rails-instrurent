@@ -7,19 +7,22 @@
     <div class="heading"></div>
       <h2><%= @instrument.name %></h2>
 </div>
-<div class="show-container"> <!-- grid container -->
-<!--   item one in grid -->
-  <div class="show-card">
+
     <% if @instrument.photo.file  %>
-      <div class="show-image">
-        <%= cl_image_tag(@instrument.photo) %>
+      <div class="show-image" style="background-image: url(<%= cl_image_path(@instrument.photo) %>)">
       </div>
     <% else %>
-      <%= image_tag 'record-player.png', class: "no-photo" %>
+      <div class="no-photo" style="background-image: url('<%= image_path "record-player.png" %>');"></div>
     <% end %>
+
+<div class="show-container">
+  <div class="show-card">
     <div class="show-card-info">
+      <h3>Location :</h3>
       <p>This <%= @instrument.category %> is located at <%= @instrument.address %></p>
+      <h3>Price :</h3>
       <p>It costs <%= @instrument.price  %>€/day to rent</p>
+      <h3>About this instrument :</h3>
       <p><%= @instrument.description %></p>
 
     </div>
@@ -40,9 +43,7 @@
   <div class="book-container item2">
     <div class="book-form">
       <%= simple_form_for [@instrument, @booking] do |f| %>
-      <p><strong>Start Date</strong></p>
       <%= f.input :start_date %>
-      <p><strong>End Date</strong></p>
       <%= f.input :end_date %>
       <input type="submit" name="commit" value="Book Now!" class="button-orange" data-disable-with="Book Now!" />
       </div>
